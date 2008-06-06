@@ -1,0 +1,41 @@
+= Validates Existance Of Plugin
+
+Validates the existance of an associated record in the database through a belongs_to association.
+
+validates_existance_of :ar_belongs_to_association
+
+Supports polymorphic associations.
+
+== Usage
+
+  validates_existance_of :belongs_to_association
+  
+== Example
+
+  class Country < ActiveRecord::Base
+
+    has_many :users
+  
+  end
+
+  class User < ActiveRecord::Base
+  
+    belongs_to :country
+  
+    validates_presence_of :country_id
+    
+    # Will pass if the associated country exists in the database
+    validates_existance_of :country 
+    
+  end
+
+== Instalation
+
+  git clone git://github.com/bogdans83/validatesexistanceof.git
+  
+or use "braid": http://evil.che.lu/projects/braid
+
+== Uninteresting stuff
+  Author:: Bogdan Sandulescu <bogdan at okapistudio the point com>
+  License:: Copyright 2008 Bogdan Sandulescu
+            Released under an MIT-style license.
